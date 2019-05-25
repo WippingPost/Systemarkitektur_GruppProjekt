@@ -4,11 +4,9 @@ import java.awt.List;
 
 public class PlayList {
 
-	private String name;
 	private List tracks = new List();
 
-	public PlayList(String name) {
-		this.name = name;
+	public PlayList() {
 	}
 
 	public void addTrack(String title) {
