@@ -11,4 +11,8 @@ public class AlarmTrigger {
 	public boolean getState() {
 		return isTrigged;
 	}
+
+	public void setState(boolean state) {
+		isTrigged = state;
+	}
 }
