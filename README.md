@@ -1,2 +1,2 @@
 # Systemarkitektur_GruppProjekt
-Avslutande grupp-prjekt i kursen Systemarkitektur
+Avslutande grupp-projekt i kursen Systemarkitektur
