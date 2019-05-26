@@ -13,8 +13,14 @@ public class Relay {
 
 
 	public Relay(boolean normallyClosed) {
-		if (normallyClosed) relayType = TYPE.NC;
-		else relayType = TYPE.NO;
+		if (normallyClosed) {
+			relayType = TYPE.NC;
+			closed = true;
+		}
+		else {
+			relayType = TYPE.NO;
+			closed = false;
+		}
 	}
 
 
