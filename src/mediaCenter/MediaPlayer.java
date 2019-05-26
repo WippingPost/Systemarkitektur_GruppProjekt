@@ -14,7 +14,7 @@ public class MediaPlayer extends Connection {
 		connect("Spotify");
 	}
 
-	public void diconnectSpotify() {
+	public void disconnectSpotify() {
 		disconnect("Spotify");
 	}
 

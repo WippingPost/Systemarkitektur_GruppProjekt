@@ -8,11 +8,15 @@ public class AlarmTrigger {
 		isTrigged = false;
 	}
 
-	public boolean getState() {
-		return isTrigged;
+	public void activate() {
+		isTrigged =true;
 	}
 
-	public void setState(boolean state) {
-		isTrigged = state;
+	public void deActivate() {
+		isTrigged = false;
+	}
+
+	public boolean isActivated() {
+		return isTrigged;
 	}
 }

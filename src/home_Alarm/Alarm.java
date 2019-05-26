@@ -18,13 +18,13 @@ public class Alarm {
 
 	public void updateState() {
 		for (AlarmTrigger trigger: triggers) {
-			if (trigger.getState()) {
+			if (trigger.isActivated()) {
 				soundAlarm();
 			}
 		}
 	}
 
 	private void soundAlarm() {
-		// TODO: Starta larmsignal
+		// TODO: Stoppa larmet om rätt kod matas in i kotrollpanelen
 	}
 }
