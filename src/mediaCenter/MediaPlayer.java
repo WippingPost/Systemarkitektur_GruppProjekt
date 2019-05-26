@@ -26,7 +26,7 @@ public class MediaPlayer extends Connection {
 		isPlaying = false;
 	}
 
-	public boolean getState() {
+	public boolean isRunning() {
 		return isPlaying;
 	}
 }
