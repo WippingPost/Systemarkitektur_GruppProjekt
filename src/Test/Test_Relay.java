@@ -28,7 +28,23 @@ public class Test_Relay {
 	@Test
 	public void Activation_Test_RelayNC() {
 		relayNC.activate();
+		boolean actual = relayNC.isClosed();
+		assertEquals(false, actual);
+	}
+
+	@Test
+	public void DE_Activation_Test_RelayNO() {
+		relayNO.activate();
+		relayNO.deActivate();
 		boolean actual = relayNO.isClosed();
 		assertEquals(false, actual);
+	}
+
+	@Test
+	public void DE_Activation_Test_RelayNC() {
+		relayNC.activate();
+		relayNC.deActivate();
+		boolean actual = relayNC.isClosed();
+		assertEquals(true, actual);
 	}
 }
