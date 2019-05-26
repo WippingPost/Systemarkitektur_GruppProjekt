@@ -18,7 +18,7 @@ public class Relay {
 	}
 
 
-	public void Activate() {
+	public void activate() {
 		switch (relayType) {
 		case NO:
 			closed = true;
