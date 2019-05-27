@@ -8,13 +8,17 @@ public class Spotify {
 	private boolean isPlaying;
 
 	public Spotify() {
-		addNewPlayList("Schlager");
+		addNewPlayList("UpTempo");
+		addNewPlayList("Classic");
+		addNewPlayList("Ballad");
+
 	}
 
 	public void play(String nameOfPlayList) {
 		getPlayList(nameOfPlayList);
 		// TODO: Spela upp spellistan efter att den hämtats
 		isPlaying = true;
+		System.out.println("Spelar spellistan '" + nameOfPlayList);
 	}
 
 	public void stop() {

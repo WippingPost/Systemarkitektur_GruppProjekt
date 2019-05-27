@@ -2,30 +2,33 @@ package mediaCenter;
 
 import spotify.Spotify;
 
-public class MediaPlayer extends Connection {
+public class MediaPlayer {
 
 	boolean isPlaying;
 	Spotify spotify;
+	Connection connection;
 
 	public MediaPlayer() {
+		connection = new Connection();
 		spotify = new Spotify();
 		isPlaying = false;
 	}
 
 	public void connectToSpotify() {
-		connect("Spotify");
+		connection.connect("Spotify");
+		System.out.println(connection.getStatus());
 	}
 
 	public void disconnectSpotify() {
-		disconnect("Spotify");
+		connection.disconnect("Spotify");
+		System.out.println(connection.getStatus());
 	}
 
 	public void play(String nameOfPlayList) {
-		if (getStatus().equalsIgnoreCase("Connected")) {
+		if (connection.getStatus().equalsIgnoreCase("Connected")) {
 			spotify.play(nameOfPlayList);
 			isPlaying = true;
 		}
-
 	}
 
 	public void stop() {

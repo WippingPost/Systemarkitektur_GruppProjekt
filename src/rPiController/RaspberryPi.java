@@ -1,15 +1,22 @@
 package rPiController;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import home_Alarm.ControlPanel;
+import mediaCenter.MediaPlayer;
 
-public class RaspberryPi extends RelayBoard implements Runnable {
+public class RaspberryPi implements Runnable {
 
-	private ControlPanel controlPanel = new ControlPanel();
+	private ControlPanel controlPanel;
+	private RelayBoard relayBoard;
+	private MediaPlayer mediaPlayer;
 	private boolean userIsHome = false;
 
-	public RaspberryPi(ControlPanel controlPanel) {		// Kopplar upp kodpanelen till Raspberry Pi
+	public RaspberryPi(ControlPanel controlPanel, RelayBoard relayBoard) {		// Kopplar upp kodpanelen till Raspberry Pi
 		this.controlPanel = controlPanel;
-
+		this.relayBoard = relayBoard;
+		mediaPlayer = new MediaPlayer();
 	}
 
 
@@ -23,8 +30,9 @@ public class RaspberryPi extends RelayBoard implements Runnable {
 				pauseThread();
 				turnOnCoffeeMaker();
 				pauseThread();
-				turnOnMediaPlayer();
+				turnOnStereo();
 				pauseThread();
+				startSpotify();
 				turnOnWelcomeScreen();
 				userIsHome = true;
 			}
@@ -33,29 +41,55 @@ public class RaspberryPi extends RelayBoard implements Runnable {
 				userIsHome = false;
 			}
 
+
+			int time = getCurrentTime();
+
+			if (!mediaPlayer.isRunning()) {
+				if (time >= 12 && time <= 15) {
+					// TODO
+				}
+				if (time >= 16 && time <= 18) {
+					// TODO
+				}
+				if (time >= 19 && time <= 20) {
+					// TODO
+				}
+			}
+			if (mediaPlayer.isRunning()) {
+				if (time < 12 && time >= 21) {
+					// TODO
+				}
+			}
+
+
 		}
 
 	}
 
 
 	public void turnOnLights() {	// 5V signal till relä
-		relayLights.activate();
+		relayBoard.relayLights.activate();
 	}
 
 	public void turnOffLights() {	// 5V signal till relä
-		relayLights.activate();
+		relayBoard.relayLights.deActivate();
 	}
 
 	public void turnOnCoffeeMaker() {	// 5V signal till relä
-		relayCoffeeMaker.activate();
+		relayBoard.relayCoffeeMaker.activate();
 	}
 
-	public void turnOnMediaPlayer() {	// 5V signal till relä
-		relayMediaPlayer.activate();
+	public void turnOnStereo() {	// 5V signal till relä
+		relayBoard.relayStereo.activate();
 	}
 
-	public void turnOnWelcomeScreen() {	// 5V signal till relä
-		relayWelcomeScreen.activate();
+	public void turnOnWelcomeScreen() {		// 5V signal till relä
+		relayBoard.relayWelcomeScreen.activate();
+	}
+
+
+	private void startSpotify() {
+		mediaPlayer.connectToSpotify();
 	}
 
 	private void pauseThread() {
@@ -68,6 +102,9 @@ public class RaspberryPi extends RelayBoard implements Runnable {
 	}
 
 
-
+	public int getCurrentTime() {
+	    return Integer.parseInt(LocalDateTime.now()
+	       .format(DateTimeFormatter.ofPattern("HH")));  //"yyyy-MM-dd HH:mm:ss.SSS"
+	}
 
 }
