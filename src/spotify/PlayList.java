@@ -1,12 +1,14 @@
 package spotify;
 
-import java.awt.List;
+import java.util.ArrayList;
 
 public class PlayList {
 
-	private List tracks = new List();
+	private ArrayList<String> tracks = new ArrayList<>();
+	private String name;
 
-	public PlayList() {
+	public PlayList(String name) {
+		this.name = name;
 	}
 
 	public void addTrack(String title) {
@@ -17,7 +19,11 @@ public class PlayList {
 		tracks.remove(title);
 	}
 
-	public List getPlayList() {
+	public ArrayList<String> getTracks() {
 		return tracks;
+	}
+
+	public String getName() {
+		return name;
 	}
 }

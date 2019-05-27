@@ -1,12 +1,14 @@
 package mediaCenter;
 
-import spotify.PlayList;
+import spotify.Spotify;
 
 public class MediaPlayer extends Connection {
 
 	boolean isPlaying;
+	Spotify spotify;
 
 	public MediaPlayer() {
+		spotify = new Spotify();
 		isPlaying = false;
 	}
 
@@ -18,11 +20,16 @@ public class MediaPlayer extends Connection {
 		disconnect("Spotify");
 	}
 
-	public void play(PlayList playList) {
-		isPlaying = true;
+	public void play(String nameOfPlayList) {
+		if (getStatus().equalsIgnoreCase("Connected")) {
+			spotify.play(nameOfPlayList);
+			isPlaying = true;
+		}
+
 	}
 
 	public void stop() {
+		spotify.stop();
 		isPlaying = false;
 	}
 

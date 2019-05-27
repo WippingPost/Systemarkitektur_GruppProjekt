@@ -17,14 +17,18 @@ public class RaspberryPi extends RelayBoard implements Runnable {
 	public void run() {
 		while (true) {
 
-			if (controlPanel.getState().equalsIgnoreCase("unlocked") && !userIsHome) {
+			if (!userIsHome && controlPanel.getState().equalsIgnoreCase("unlocked")) {
+				pauseThread();
 				turnOnLights();
+				pauseThread();
 				turnOnCoffeeMaker();
+				pauseThread();
 				turnOnMediaPlayer();
+				pauseThread();
 				turnOnWelcomeScreen();
 				userIsHome = true;
 			}
-			if (controlPanel.getState().equalsIgnoreCase("locked") && userIsHome) {
+			if (userIsHome && controlPanel.getState().equalsIgnoreCase("locked")) {
 				turnOffLights();
 				userIsHome = false;
 			}
@@ -52,6 +56,15 @@ public class RaspberryPi extends RelayBoard implements Runnable {
 
 	public void turnOnWelcomeScreen() {	// 5V signal till relä
 		relayWelcomeScreen.activate();
+	}
+
+	private void pauseThread() {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 
