@@ -6,6 +6,7 @@ public class Spotify {
 
 	ArrayList<PlayList> playList = new ArrayList<>();
 	private boolean isPlaying;
+	private String currentPlayList = "";
 
 	public Spotify() {
 		addNewPlayList("UpTempo");
@@ -19,10 +20,12 @@ public class Spotify {
 		// TODO: Spela upp spellistan efter att den hämtats
 		isPlaying = true;
 		System.out.println("Spelar spellistan '" + nameOfPlayList);
+		currentPlayList = nameOfPlayList.toLowerCase();
 	}
 
 	public void stop() {
 		isPlaying = false;
+		currentPlayList = "";
 	}
 
 	public boolean isRunning() {
@@ -35,8 +38,12 @@ public class Spotify {
 
 	private PlayList getPlayList(String name) {
 		for (PlayList pList : playList) {
-			if (pList.getName().equalsIgnoreCase("name")) return pList;
+			if (pList.getName().equalsIgnoreCase(name)) return pList;
 		}
 		return null;
+	}
+
+	public String getCurrentPlayList() {
+		return currentPlayList;
 	}
 }

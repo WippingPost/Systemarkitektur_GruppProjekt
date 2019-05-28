@@ -39,4 +39,12 @@ public class MediaPlayer {
 	public boolean isRunning() {
 		return isPlaying;
 	}
+
+	public String getConnectionStatus() {
+		return connection.getStatus();
+	}
+
+	public String getCurrentPlaylist() {
+		return spotify.getCurrentPlayList();
+	}
 }

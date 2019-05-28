@@ -32,7 +32,7 @@ public class RaspberryPi implements Runnable {
 				pauseThread();
 				turnOnStereo();
 				pauseThread();
-				startSpotify();
+				startMediaPlayer();
 				turnOnWelcomeScreen();
 				userIsHome = true;
 			}
@@ -42,55 +42,57 @@ public class RaspberryPi implements Runnable {
 			}
 
 
-			int time = getCurrentTime();
 
-			if (!mediaPlayer.isRunning()) {
-				if (time >= 12 && time <= 15) {
-					// TODO
-				}
-				if (time >= 16 && time <= 18) {
-					// TODO
-				}
-				if (time >= 19 && time <= 20) {
-					// TODO
-				}
+			if (mediaPlayer.getConnectionStatus().equalsIgnoreCase("Connected") && !mediaPlayer.isRunning()) {
+				startPlayListAccordingToTime();
 			}
+
 			if (mediaPlayer.isRunning()) {
-				if (time < 12 && time >= 21) {
-					// TODO
-				}
+				stopMediaPlayerIfTimeIsLate();
 			}
-
-
+			pauseThread();
 		}
-
 	}
 
 
-	public void turnOnLights() {	// 5V signal till relä
+
+	private void turnOnLights() {	// 5V signal till relä
 		relayBoard.relayLights.activate();
+		System.out.println("Tänder lampor!");
 	}
 
-	public void turnOffLights() {	// 5V signal till relä
+
+	private void turnOffLights() {	// 5V signal till relä
 		relayBoard.relayLights.deActivate();
+		System.out.println("Släcker lampor!");
 	}
 
-	public void turnOnCoffeeMaker() {	// 5V signal till relä
+
+	private void turnOnCoffeeMaker() {	// 5V signal till relä
 		relayBoard.relayCoffeeMaker.activate();
+		System.out.println("Startar kaffebryggare!");
 	}
 
-	public void turnOnStereo() {	// 5V signal till relä
+
+	private void turnOnStereo() {	// 5V signal till relä
 		relayBoard.relayStereo.activate();
+		System.out.println("Startar ljudanläggning!");
 	}
 
-	public void turnOnWelcomeScreen() {		// 5V signal till relä
+
+	private void turnOnWelcomeScreen() {		// 5V signal till relä
 		relayBoard.relayWelcomeScreen.activate();
+		System.out.println("Skriver Välkommen Hem på skärm!");
 	}
 
 
-	private void startSpotify() {
+
+	private void startMediaPlayer() {
 		mediaPlayer.connectToSpotify();
+		System.out.println("Startar mediaspelare!");
 	}
+
+
 
 	private void pauseThread() {
 		try {
@@ -102,9 +104,35 @@ public class RaspberryPi implements Runnable {
 	}
 
 
-	public int getCurrentTime() {
+
+	private int getCurrentTime() {
 	    return Integer.parseInt(LocalDateTime.now()
 	       .format(DateTimeFormatter.ofPattern("HH")));  //"yyyy-MM-dd HH:mm:ss.SSS"
+	}
+
+
+	private void startPlayListAccordingToTime() {
+		int time = getCurrentTime(); 	// Hämtar aktuell tid som hel timma
+
+		if (time >= 12 && time <= 15 && !mediaPlayer.getCurrentPlaylist().equalsIgnoreCase("UpTempo")) {
+			mediaPlayer.play("UpTempo");
+		}
+		if (time >= 16 && time <= 18 && !mediaPlayer.getCurrentPlaylist().equalsIgnoreCase("Classic")) {
+			mediaPlayer.play("Classic");
+		}
+		if (time >= 19 && time <= 20 && !mediaPlayer.getCurrentPlaylist().equalsIgnoreCase("Ballad")) {
+			mediaPlayer.play("Ballad");
+		}
+	}
+
+
+	private void stopMediaPlayerIfTimeIsLate() {
+		int time = getCurrentTime(); 	// Hämtar aktuell tid som hel timma
+
+		if (time < 12 && time >= 21) {
+			mediaPlayer.stop();
+			System.out.println("Klockan är mycket!\nLäggdax!");
+		}
 	}
 
 }
