@@ -24,6 +24,7 @@ public class RaspberryPi implements Runnable {
 	public void run() {
 		while (true) {
 
+			// Användaren kommer hem och larmar av via larmdosan
 			if (!userIsHome && controlPanel.getState().equalsIgnoreCase("unlocked")) {
 				pauseThread();
 				turnOnLights();
@@ -36,20 +37,20 @@ public class RaspberryPi implements Runnable {
 				turnOnWelcomeScreen();
 				userIsHome = true;
 			}
+
+			// Användaren lämnar hemmet samt larmar på via larmdosan
 			if (userIsHome && controlPanel.getState().equalsIgnoreCase("locked")) {
 				turnOffLights();
+				turnOffStereo();
+				if (mediaPlayer.isRunning()) mediaPlayer.stop();
 				userIsHome = false;
 			}
 
 
-
-			if (mediaPlayer.getConnectionStatus().equalsIgnoreCase("Connected") && !mediaPlayer.isRunning()) {
+			if (userIsHome && mediaPlayer.getConnectionStatus().equalsIgnoreCase("Connected")) {
 				startPlayListAccordingToTime();
 			}
 
-			if (mediaPlayer.isRunning()) {
-				stopMediaPlayerIfTimeIsLate();
-			}
 			pauseThread();
 		}
 	}
@@ -80,11 +81,16 @@ public class RaspberryPi implements Runnable {
 	}
 
 
+	private void turnOffStereo() {
+		relayBoard.relayStereo.deActivate();
+		System.out.println("Stänger av ljudanläggning!");
+	}
+
+
 	private void turnOnWelcomeScreen() {		// 5V signal till relä
 		relayBoard.relayWelcomeScreen.activate();
 		System.out.println("Skriver Välkommen Hem på skärm!");
 	}
-
 
 
 	private void startMediaPlayer() {
@@ -105,33 +111,28 @@ public class RaspberryPi implements Runnable {
 
 
 
-	private int getCurrentTime() {
+	private int getCurrentTime(String pattern) {
 	    return Integer.parseInt(LocalDateTime.now()
-	       .format(DateTimeFormatter.ofPattern("HH")));  //"yyyy-MM-dd HH:mm:ss.SSS"
+	       .format(DateTimeFormatter.ofPattern(pattern)));  //"yyyy-MM-dd HH:mm:ss.SSS"
 	}
 
 
 	private void startPlayListAccordingToTime() {
-		int time = getCurrentTime(); 	// Hämtar aktuell tid som hel timma
-
+		int time = getCurrentTime("HH"); 	// Hämtar aktuell tid som heltal och hel timma
+		System.out.println(time);
 		if (time >= 12 && time <= 15 && !mediaPlayer.getCurrentPlaylist().equalsIgnoreCase("UpTempo")) {
 			mediaPlayer.play("UpTempo");
 		}
-		if (time >= 16 && time <= 18 && !mediaPlayer.getCurrentPlaylist().equalsIgnoreCase("Classic")) {
+		else if (time >= 16 && time <= 18 && !mediaPlayer.getCurrentPlaylist().equalsIgnoreCase("Classic")) {
 			mediaPlayer.play("Classic");
 		}
-		if (time >= 19 && time <= 20 && !mediaPlayer.getCurrentPlaylist().equalsIgnoreCase("Ballad")) {
+		else if (time >= 19 && time <= 20 && !mediaPlayer.getCurrentPlaylist().equalsIgnoreCase("Ballad")) {
 			mediaPlayer.play("Ballad");
 		}
-	}
-
-
-	private void stopMediaPlayerIfTimeIsLate() {
-		int time = getCurrentTime(); 	// Hämtar aktuell tid som hel timma
-
-		if (time < 12 && time >= 21) {
+		else if ((time < 12 || time >= 21) && mediaPlayer.isRunning()) {
 			mediaPlayer.stop();
-			System.out.println("Klockan är mycket!\nLäggdax!");
+			turnOffStereo();
+			System.out.println("Klockan är mycket!\nDet är snart läggdax!");
 		}
 	}
 

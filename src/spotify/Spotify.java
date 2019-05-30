@@ -16,11 +16,16 @@ public class Spotify {
 	}
 
 	public void play(String nameOfPlayList) {
-		getPlayList(nameOfPlayList);
-		// TODO: Spela upp spellistan efter att den hämtats
-		isPlaying = true;
-		System.out.println("Spelar spellistan '" + nameOfPlayList);
+		if (!isPlaying) {
+			getPlayList(nameOfPlayList);
+			isPlaying = true;
+			System.out.println("Spelar upp spellistan " + nameOfPlayList);
+		} else {
+			getPlayList(nameOfPlayList);
+			System.out.println("Byter till spellistan " + nameOfPlayList);
+		}
 		currentPlayList = nameOfPlayList.toLowerCase();
+
 	}
 
 	public void stop() {

@@ -16,12 +16,16 @@ public class MediaPlayer {
 
 	public void connectToSpotify() {
 		connection.connect("Spotify");
-		System.out.println(connection.getStatus());
+		if (getConnectionStatus().equalsIgnoreCase("connected")) {
+			System.out.println("Mediaspelare är ansluten till Spotify!");
+		}
 	}
 
 	public void disconnectSpotify() {
 		connection.disconnect("Spotify");
-		System.out.println(connection.getStatus());
+		if (!getConnectionStatus().equalsIgnoreCase("connected")) {
+			System.out.println("Mediaspelare har ingen anslutning till Spotify!");
+		}
 	}
 
 	public void play(String nameOfPlayList) {
@@ -47,4 +51,6 @@ public class MediaPlayer {
 	public String getCurrentPlaylist() {
 		return spotify.getCurrentPlayList();
 	}
+
+
 }
