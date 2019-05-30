@@ -119,7 +119,6 @@ public class RaspberryPi implements Runnable {
 
 	private void startPlayListAccordingToTime() {
 		int time = getCurrentTime("HH"); 	// Hämtar aktuell tid som heltal och hel timma
-		System.out.println(time);
 		if (time >= 12 && time <= 15 && !mediaPlayer.getCurrentPlaylist().equalsIgnoreCase("UpTempo")) {
 			mediaPlayer.play("UpTempo");
 		}
