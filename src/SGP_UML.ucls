@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.3" icons="true" always-add-relationships="true" generalizations="true" realizations="true" 
+  associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="userInteraction.Main" project="Systemarkitektur_Grupp_Projekt" 
+    file="/Systemarkitektur_Grupp_Projekt/src/userInteraction/Main.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="113" x="358" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="rPiController.RaspberryPi" project="Systemarkitektur_Grupp_Projekt" 
+    file="/Systemarkitektur_Grupp_Projekt/src/rPiController/RaspberryPi.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="297" width="212" x="358" y="176"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="mediaCenter.MediaPlayer" project="Systemarkitektur_Grupp_Projekt" 
+    file="/Systemarkitektur_Grupp_Projekt/src/mediaCenter/MediaPlayer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="458" y="626"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="home_Alarm.Alarm" project="Systemarkitektur_Grupp_Projekt" 
+    file="/Systemarkitektur_Grupp_Projekt/src/home_Alarm/Alarm.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="127" y="311"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="home_Alarm.AlarmTrigger" project="Systemarkitektur_Grupp_Projekt" 
+    file="/Systemarkitektur_Grupp_Projekt/src/home_Alarm/AlarmTrigger.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="129" x="41" y="778"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="mediaCenter.Connection" project="Systemarkitektur_Grupp_Projekt" 
+    file="/Systemarkitektur_Grupp_Projekt/src/mediaCenter/Connection.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="138" x="413" y="778"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="rPiController.RelayBoard" project="Systemarkitektur_Grupp_Projekt" 
+    file="/Systemarkitektur_Grupp_Projekt/src/rPiController/RelayBoard.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="181" width="90" x="584" y="546"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="spotify.Spotify" project="Systemarkitektur_Grupp_Projekt" 
+    file="/Systemarkitektur_Grupp_Projekt/src/spotify/Spotify.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="163" x="210" y="778"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="home_Alarm.ControlPanel" project="Systemarkitektur_Grupp_Projekt" 
+    file="/Systemarkitektur_Grupp_Projekt/src/home_Alarm/ControlPanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="148" x="170" y="513"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="rPiController.Relay" project="Systemarkitektur_Grupp_Projekt" 
+    file="/Systemarkitektur_Grupp_Projekt/src/rPiController/Relay.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="168" width="116" x="818" y="558"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="spotify.PlayList" project="Systemarkitektur_Grupp_Projekt" 
+    file="/Systemarkitektur_Grupp_Projekt/src/spotify/PlayList.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="170" x="210" y="1043"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <dependency id="12">    
+    <bendpoint x="273" y="176"/>    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <association id="13">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="14" name="trigger"/>      
+      <multiplicity id="15" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="16">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="17" name="controlPanel"/>      
+      <multiplicity id="18" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="19">    
+    <bendpoint x="50" y="513"/>    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="20" name="triggers"/>      
+      <multiplicity id="21" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="22">    
+    <bendpoint x="600" y="176"/>    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="7"/>  
+  </dependency>  
+  <association id="23">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="24" name="mediaPlayer"/>      
+      <multiplicity id="25" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="26">    
+    <bendpoint x="703" y="671"/>    
+    <bendpoint x="750" y="676"/>    
+    <bendpoint x="793" y="673"/>    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="27" name="relayCoffeeMaker"/>      
+      <multiplicity id="28" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="29">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="30" name="controlPanel"/>      
+      <multiplicity id="31" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="32">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="33" name="connection"/>      
+      <multiplicity id="34" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="35">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="36" name="spotify"/>      
+      <multiplicity id="37" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="38">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <association id="39">    
+    <bendpoint x="697" y="709"/>    
+    <bendpoint x="745" y="711"/>    
+    <bendpoint x="798" y="710"/>    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="40" name="relayWelcomeScreen"/>      
+      <multiplicity id="41" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="42">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="43" name="relayBoard">        
+        <position height="18" width="61" x="548" y="495"/>      
+      </attribute>      
+      <multiplicity id="44" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="45">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="46" name="playList"/>      
+      <multiplicity id="47" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="48">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="49" name="relayStereo"/>      
+      <multiplicity id="50" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="51">    
+    <bendpoint x="697" y="581"/>    
+    <bendpoint x="739" y="561"/>    
+    <bendpoint x="789" y="573"/>    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="52" name="relayLights">        
+        <position height="18" width="63" x="718" y="569"/>      
+      </attribute>      
+      <multiplicity id="53" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

@@ -2,21 +2,21 @@ package home_Alarm;
 
 public class AlarmTrigger {
 
-	boolean isTrigged;
+	boolean isTriggered;
 
 	public AlarmTrigger() {
-		isTrigged = false;
+		isTriggered = false;
 	}
 
 	public void activate() {
-		isTrigged =true;
+		isTriggered =true;
 	}
 
 	public void deActivate() {
-		isTrigged = false;
+		isTriggered = false;
 	}
 
 	public boolean isActivated() {
-		return isTrigged;
+		return isTriggered;
 	}
 }

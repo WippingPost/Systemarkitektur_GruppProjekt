@@ -16,15 +16,17 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		new Thread(raspberryPi).start();
 		String input = "";
-		while(!input.equalsIgnoreCase("end")) {
+
+		System.out.println("Användaren kom precis hem och står vid sin larmpanel.\n"
+				+ "Larmet är påslaget! Pinkoden är '1234'.\nSkriv 'exit' för att avsluta.\n");
+
+		while(!input.equalsIgnoreCase("exit")) {
+			System.out.println("Ange pinkod för att larma av/på:");
 			input = scanner.nextLine();
-			if (input.equals("1")) {
-				controlPanel.activateTrigger();
-			}
-			if (input.equals("2")) {
-				controlPanel.deActivateTrigger();
-			}
+			if (!input.equals("exit")) controlPanel.enterPinCode(input);
+
 		}
+		System.out.println("Hej då!");
 		System.exit(0);
 	}
 }
