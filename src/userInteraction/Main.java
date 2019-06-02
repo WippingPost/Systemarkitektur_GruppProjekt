@@ -26,7 +26,8 @@ public class Main {
 			if (!input.equals("exit")) controlPanel.enterPinCode(input);
 
 		}
-		System.out.println("Hej då!");
+		scanner.close();
+		System.out.println("Tack o Hej!");
 		System.exit(0);
 	}
 }

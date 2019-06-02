@@ -4,6 +4,13 @@ public class ControlPanel {
 
 	private AlarmTrigger trigger = new AlarmTrigger();
 	private String state = "locked";
+	private String secretPassword;
+
+
+	public ControlPanel() {
+		setPinCode("1234");
+	}
+
 
 	public void activateTrigger() {
 		trigger.activate();
@@ -18,13 +25,16 @@ public class ControlPanel {
 	}
 
 	public boolean enterPinCode(String pinCode) {
-		if (pinCode.equals("1234")) {
+		if(pinCodeIsCorrect(pinCode)) {
 			System.out.print("Pinkod OK!");
 			toggleState();
 			return true;
 		}
-		System.out.println("Felaktig pinkod! Försök igen!");
-		return false;
+		else {
+			System.out.println("Felaktig pinkod! Försök igen!");
+			return false;
+		}
+
 	}
 
 	private void toggleState() {
@@ -38,6 +48,15 @@ public class ControlPanel {
 
 	public String getState() {
 		return state;
+	}
+
+	private boolean pinCodeIsCorrect(String pinCode) {
+		if (pinCode.equals(secretPassword)) return true;
+		else return false;
+	}
+
+	public void setPinCode(String pinCode) {
+		secretPassword = pinCode;
 	}
 
 }

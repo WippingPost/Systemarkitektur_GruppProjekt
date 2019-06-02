@@ -10,10 +10,11 @@ public class RaspberryPi implements Runnable {
 
 	private ControlPanel controlPanel;
 	private RelayBoard relayBoard;
-	private MediaPlayer mediaPlayer;
+	public MediaPlayer mediaPlayer;
 	private boolean userIsHome = false;
+	private static String TIMEPATTERN = "HH"; // Pattern av "yyyy-MM-dd HH:mm:ss.SSS", "HH" returnerar endast timmar
 
-	public RaspberryPi(ControlPanel controlPanel, RelayBoard relayBoard) {		// Kopplar upp kodpanelen till Raspberry Pi
+	public RaspberryPi(ControlPanel controlPanel, RelayBoard relayBoard) {		// Kopplar upp kodpanel och reläkort till Raspberry Pi
 		this.controlPanel = controlPanel;
 		this.relayBoard = relayBoard;
 		mediaPlayer = new MediaPlayer();
@@ -48,7 +49,7 @@ public class RaspberryPi implements Runnable {
 
 
 			if (userIsHome && mediaPlayer.getConnectionStatus().equalsIgnoreCase("Connected")) {
-				startPlayListAccordingToTime();
+				startPlayListAccordingToTime(getCurrentTime(TIMEPATTERN));
 			}
 
 			pauseThread();
@@ -110,15 +111,14 @@ public class RaspberryPi implements Runnable {
 	}
 
 
-
+	// Hämtar aktuell tid som heltal efter val av pattern
 	private int getCurrentTime(String pattern) {
 	    return Integer.parseInt(LocalDateTime.now()
 	       .format(DateTimeFormatter.ofPattern(pattern)));  //"yyyy-MM-dd HH:mm:ss.SSS"
 	}
 
 
-	private void startPlayListAccordingToTime() {
-		int time = getCurrentTime("HH"); 	// Hämtar aktuell tid som heltal och hel timma
+	public void startPlayListAccordingToTime(int time) {
 		if (time >= 12 && time <= 15 && !mediaPlayer.getCurrentPlaylist().equalsIgnoreCase("UpTempo")) {
 			mediaPlayer.play("UpTempo");
 		}
@@ -134,5 +134,4 @@ public class RaspberryPi implements Runnable {
 			System.out.println("Klockan är mycket!\nDet är snart läggdax!");
 		}
 	}
-
 }
