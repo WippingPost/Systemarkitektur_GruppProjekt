@@ -90,7 +90,7 @@ public class RaspberryPi implements Runnable {
 
 	private void turnOnWelcomeScreen() {		// 5V signal till relä
 		relayBoard.relayWelcomeScreen.activate();
-		System.out.println("Skriver Välkommen Hem på skärm!");
+		System.out.println("Skriver 'Willkommen im Schlagerland' på skärmen.");
 	}
 
 
